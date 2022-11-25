@@ -1,0 +1,127 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* INDEX STYLE */
+
+.wrapper{
+    height: 100vh;
+    background-color: steelblue;
+}
+
+.wrapper .parBox{
+    transform: perspective(75em) rotateX(18deg);
+    box-shadow:
+                1px 1px 0 1px #f9f9fb,
+                -1px 0 28px 0 rgba(34, 33, 81, 0.01),
+                28px 28px 28px 0 rgba(34, 33, 81, 0.25);
+    transition: transform .5s, box-shadow .5s;
+}
+
+.wrapper .parBox:hover{
+    transform: perspective(75em) rotateX(18deg) translate3d(0, -16px, 0);
+    box-shadow:
+                1px 1px 0 1px #f9f9fb,
+                -1px 0 28px 0 rgba(34, 33, 81, 0.01),
+                54px 54px 28px -10px rgba(34, 33, 81, 0.15);
+}
+
+.wrapper .paragraph, .wrapper .paragraph:focus, .wrapper .paragraph:focus-visible{
+    min-height: 200px;
+    background-color: #abcdef;
+    outline: none;
+    color: #e2f3fb;
+}
+
+.wrapper .banBox{
+    color: paleturquoise
+}
+
+.banBtn{
+    position: relative;
+    width: 100px;
+    height: 40px;
+    overflow: hidden;
+}
+
+button .bad, button .good{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    line-height: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bad{
+    background-color: rgb(37, 37, 41);
+    color: rgb(233,233,233);
+    z-index: 5;
+}
+
+.good{
+    opacity: 0;
+    clip-path: polygon(0% 0%, 10% 0, 25% 50%, 10% 100%, 0% 100%);
+    background-color: palegreen;
+    z-index: 10;
+}
+
+.banBtn:hover .good{
+    animation: btnFX .5s forwards;
+}
+
+@keyframes btnFX {
+    0%{
+        opacity: 0;
+        clip-path: polygon(0% 0%, 10% 0, 25% 50%, 10% 100%, 0% 100%);
+    }
+    100%{
+        opacity: 1;
+        clip-path: polygon(0% 0%, 100% 0, 125% 50%, 100% 100%, 0% 100%);
+    }
+}
+
+.wrapper .bannedWord, .wrapper .bannedWord:focus{
+    background-color: palevioletred;
+    border: none;
+    transform: perspective(75em) rotateX(18deg);
+    box-shadow:
+                rgba(22, 31, 39, 0.42) 0px 60px 123px -25px,
+                rgba(19, 26, 32, 0.08) 0px 35px 75px -35px;
+}
+
+
+/* FORM DESTINATION */
+
+.badParBox{
+    border-radius: 20px;
+    background-color: palevioletred;
+    transform: perspective(800px) rotateY(25deg) scale(0.9) rotateX(10deg);
+    opacity: 0.5;
+    transition: all .5s ease;
+    font-size: .8rem;
+}
+
+.badParBox:hover{
+    transform: perspective(800px) rotateY(0deg) translateY(-50px) rotateX(0deg) scale(1);
+    opacity: 1;
+}
+
+.badParBox .parLength{
+    font-size: .5rem;
+    color: rgb(233,233,233);
+}
+
+.goodParBox{
+    border-radius: 20px;
+    background-color: palegreen;
+    transform: perspective(800px) rotateY(-25deg) scale(0.9) rotateX(10deg);
+    transition: all .5s ease;
+}
+
+.goodParBox:hover{
+    transform: perspective(800px) rotateY(0deg) translateY(-50px) rotateX(0deg) scale(1);
+}
